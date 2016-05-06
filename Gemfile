@@ -14,8 +14,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
 end
 
 group :production do

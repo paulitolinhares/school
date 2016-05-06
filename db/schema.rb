@@ -13,9 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160506130231) do
 
-  create_table "classroms", id: false, force: :cascade do |t|
-    t.integer  "students_id"
-    t.integer  "courses_id"
+  create_table "classrooms", id: false, force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "course_id"
     t.datetime "entry_at"
   end
 
