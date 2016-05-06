@@ -1,19 +1,25 @@
+- provide(:title, "Estudantes")
 h1 Listing students
 
-table
+table.table
   thead
     tr
-      th
-      th
-      th
+      th Nome
+      th Matrícula
+      th Ações
 
   tbody
     - @students.each do |student|
       tr
-        td = link_to 'Show', student
-        td = link_to 'Edit', edit_student_path(student)
-        td = link_to 'Destroy', student, data: { confirm: 'Are you sure?' }, method: :delete
+        td
+          = student.name
+        td
+          = student.register_number
+        td 
+          = link_to '<i class="glyphicon glyphicon-info-sign"></i> Visualizar'.html_safe, student, class: 'btn btn-info'
+          = link_to '<i class="glyphicon glyphicon-edit"></i> Editar'.html_safe, edit_student_path(student) , class: 'btn btn-primary'
+          = link_to '<i class="glyphicon glyphicon-trash"></i> Excluir'.html_safe, student, data: { confirm: "Tem certeza de que que quer excluir #{student.name}" }, method: :delete , class: 'btn btn-danger'
 
 br
 
-= link_to 'New Student', new_student_path
+= link_to '<i class="glyphicon glyphicon-pencil"></i> Cadastrar Estudante'.html_safe, new_student_path, class: 'btn btn-primary'
