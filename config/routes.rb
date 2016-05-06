@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :students
   resources :courses
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'courses#index'
+
+  get 'matricula/:student_id' => 'registrations#new'
+  post 'matricula/:student_id' => 'registrations#create'
+  delete 'matricula/:student_id/:course_id' => 'registrations#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

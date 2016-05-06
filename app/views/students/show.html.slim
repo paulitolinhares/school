@@ -1,6 +1,29 @@
-p#notice = notice
+.row
+  .col-sm-6.col-sm-offset-2
+    p#notice = notice
 
+    h3 = "Nome: #{@student.name}"
+    h3 = "Matrícula: #{@student.register_number}"
+    - unless @student.courses.empty?
+      h3 Cursos matriculados
+      table.table
+        thead
+          tr
+            th Nome
+            th Descrição
+            th Ações
 
-= link_to 'Edit', edit_student_path(@student)
-'|
-= link_to 'Back', students_path
+        tbody
+          - @student.courses.each do |course|
+            tr
+              td
+                = course.name
+              td
+                = course.description
+              td 
+                = link_to '<i class="glyphicon glyphicon-info-sign"></i> Visualizar'.html_safe, course, class: 'btn btn-info'
+                = link_to '<i class="glyphicon glyphicon-trash"></i> Excluir matrícula'.html_safe, {controller: 'registrations', action: 'destroy', student_id: @student.id, course_id: course.id}, {data: { confirm: "Tem certeza de que que quer excluir a matrícula de #{@student.name} em #{course.name}" } , class: 'btn btn-danger', method: :delete}
+
+    = link_to 'Edit', edit_student_path(@student)
+    '|
+    = link_to 'Back', students_path
