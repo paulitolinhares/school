@@ -5,6 +5,12 @@ FactoryGirl.define do
     status 1
   end
 
+  factory :student2, class: Student do
+    name "Paulo Linhares"
+    register_number "766858"
+    status 1
+  end
+
   factory :student_invalid_register, class: Student do
     # Nome Vazio
     name "Nome bom"
