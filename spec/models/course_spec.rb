@@ -15,5 +15,13 @@ RSpec.describe Course, type: :model do
 
   it "Não deve cadastrar com o nome vazio" do
     expect(@empty_course.valid?).to equal(false)
+  end
+
+  it "Relaciona curso com estudante" do
+    student = build(:student)
+    @course.students << student
+    @course.save
+    expect(@course.students.size).to be > 0
+    expect(student.courses.size).to be > 0
   end 
 end
