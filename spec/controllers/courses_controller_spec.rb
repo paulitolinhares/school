@@ -37,7 +37,7 @@ RSpec.describe CoursesController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all coures as @coures" do
+    it "assigns all coures as @cousres" do
       course = Course.create! valid_attributes
       get :index, {}, valid_session
       expect(assigns(:courses)).to eq([course])
