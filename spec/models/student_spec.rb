@@ -21,4 +21,9 @@ RSpec.describe Student, type: :model do
   it "Não deve cadastrar com atributos vazios" do
     expect(@empty_student.valid?).to equal(false)
   end 
+
+  it "Deve iniciar sempre com status ativo" do
+    @student.save
+    expect(@student.status).to equal(ActivityStatus::ACTIVE)
+  end 
 end

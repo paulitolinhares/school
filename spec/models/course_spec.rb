@@ -24,4 +24,9 @@ RSpec.describe Course, type: :model do
     expect(@course.students.size).to be > 0
     expect(student.courses.size).to be > 0
   end 
+
+  it "Deve iniciar sempre com status ativo" do
+    @course.save
+    expect(@course.status).to equal(ActivityStatus::ACTIVE)
+  end 
 end
