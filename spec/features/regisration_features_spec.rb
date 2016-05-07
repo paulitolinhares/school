@@ -12,6 +12,6 @@ RSpec.feature "Matrícula", type: :feature do
     visit "/matricula/#{@student.id}"
     select @course.name, :from => 'course_id'
     click_button 'Matricular estudante'
-    current_path.should eq("/students/#{@student.id}")
+    expect(current_path).to eq("/students/#{@student.id}")
   end
 end
