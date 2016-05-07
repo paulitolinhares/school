@@ -26,3 +26,5 @@ html
               | Close
           = msg
       = yield
+
+      = debug(flash) if Rails.env.development?

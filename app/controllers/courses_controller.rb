@@ -5,61 +5,47 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     @courses = Course.all
+    respond_with @courses
   end
 
   # GET /course/1
   # GET /course/1.json
   def show
     @students = @course.students
+    respond_with @course
   end
 
   # GET /course/new
   def new
     @course = Course.new
+    respond_with @course
   end
 
   # GET /course/1/edit
   def edit
+    respond_with @course
   end
 
   # POST /course
   # POST /course.json
   def create
     @course = Course.new(course_params)
-
-    respond_to do |format|
-      if @course.save
-        format.html { redirect_to @course, notice: 'Cours was successfully created.' }
-        format.json { render :show, status: :created, location: @course }
-      else
-        format.html { render :new }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
-    end
+    @course.save
+    respond_with(@course, :location => @course)
   end
 
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
-    respond_to do |format|
-      if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Cours was successfully updated.' }
-        format.json { render :show, status: :ok, location: @course }
-      else
-        format.html { render :edit }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
-    end
+    @course.update(course_params)
+    respond_with(@course, :location => @course)
   end
 
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
     @course.destroy
-    respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Cours was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_with(nil, :location => courses_path)
   end
 
   private
