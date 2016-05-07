@@ -1,0 +1,30 @@
+.row
+  .col-sm-6.col-sm-offset-2
+    p#notice = notice
+
+    h3 = "Nome: #{@course.name}"
+    h3 = "Descrição: #{@course.description}"
+    - unless @students.empty?
+      h3 Estudantes matrículados
+      
+      table.table
+        thead
+          tr
+            th Nome
+            th Matrícula
+            th Ações
+
+        tbody
+          - @students.each do |student|
+            tr
+              td
+                = student.name
+              td
+                = student.register_number
+              td 
+                = link_to '<i class="glyphicon glyphicon-info-sign"></i> Visualizar'.html_safe, student, class: 'btn btn-info'
+                = link_to '<i class="glyphicon glyphicon-trash"></i> Excluir matrícula'.html_safe, {controller: 'registrations', action: 'destroy', student_id: student.id, course_id: @course.id}, {data: { confirm: "Tem certeza de que que quer excluir a matrícula de #{student.name} em #{@course.name}" } , class: 'btn btn-danger', method: :delete}
+
+    = link_to 'Edit', edit_course_path(@course)
+    '|
+    = link_to 'Back', courses_path

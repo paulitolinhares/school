@@ -1,0 +1,19 @@
+table.table
+  thead
+    tr
+      th Nome
+      th Matrícula
+      th Ações
+
+  tbody
+    - @students.each do |student|
+      tr
+        td
+          = student.name
+        td
+          = student.register_number
+        td 
+          = link_to '<i class="glyphicon glyphicon-info-sign"></i> Visualizar'.html_safe, student, class: 'btn btn-info'
+          = link_to '<i class="glyphicon glyphicon-list-alt"></i> Nova matrícula'.html_safe, {controller: 'registrations', action: 'new', student_id: student.id}, class: 'btn btn-success'
+          = link_to '<i class="glyphicon glyphicon-edit"></i> Editar'.html_safe, edit_student_path(student) , class: 'btn btn-primary'
+          = link_to '<i class="glyphicon glyphicon-trash"></i> Excluir'.html_safe, student, data: { confirm: "Tem certeza de que que quer excluir #{student.name}" }, method: :delete , class: 'btn btn-danger'

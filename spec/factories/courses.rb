@@ -5,6 +5,12 @@ FactoryGirl.define do
     status 1
   end
 
+  factory :course2, class: 'Course' do
+    name "Nome novo no curso"
+    description "Novidades em curso"
+    status 1
+  end
+
   factory :course_empty_name, class: 'Course' do
     name "     "
     description "Uma descrição ainda válida"

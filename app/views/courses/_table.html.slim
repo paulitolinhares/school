@@ -1,0 +1,18 @@
+table.table
+  thead
+    tr
+      th Nome
+      th Descrição
+      th Ações
+
+  tbody
+    - @courses.each do |course|
+      tr
+        td
+          = course.name
+        td
+          = course.description
+        td 
+          = link_to '<i class="glyphicon glyphicon-info-sign"></i> Visualizar'.html_safe, course, class: 'btn btn-info'
+          = link_to '<i class="glyphicon glyphicon-edit"></i> Editar'.html_safe, edit_course_path(course) , class: 'btn btn-primary'
+          = link_to '<i class="glyphicon glyphicon-trash"></i> Excluir'.html_safe, course, data: { confirm: "Tem certeza de que que quer excluir #{course.name}" }, method: :delete , class: 'btn btn-danger'

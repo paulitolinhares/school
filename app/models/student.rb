@@ -8,4 +8,5 @@ class Student < ActiveRecord::Base
   # Relacionamento
   has_many :classrooms
   has_many :courses, :through => :classrooms, :source => :course
+  
 end

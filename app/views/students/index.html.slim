@@ -1,0 +1,9 @@
+.row
+  .col-sm-6.col-sm-offset-3
+    h1 Estudantes
+
+    = render 'students/table'
+
+    br
+
+    = link_to '<i class="glyphicon glyphicon-pencil"></i> Cadastrar Estudante'.html_safe, new_student_path, class: 'btn btn-primary'

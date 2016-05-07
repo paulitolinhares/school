@@ -216,3 +216,12 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
+  flash:
+    actions:
+      create:
+        notice: "%{resource_name} foi criado(a) com sucesso."
+      update:
+        notice: "%{resource_name} foi atualizado(a) com sucesso."
+      destroy:
+        notice: "%{resource_name} foi excluido(a) com sucesso."
+        alert: "%{resource_name} não pôde ser excluido(a)."

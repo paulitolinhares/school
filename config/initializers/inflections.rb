@@ -58,4 +58,7 @@ ActiveSupport::Inflector.inflections do |inflect|
 
   # Irregulares
   inflect.irregular "país", "países"
+
+  # Tentando consertar um bug com o i18n
+  inflect.irregular "course", "courses"
 end

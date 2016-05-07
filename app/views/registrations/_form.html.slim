@@ -1,0 +1,4 @@
+= form_tag(controller: "registrations", action: "create", method: "post")
+  .form-group
+      = select_tag(:course_id, options_from_collection_for_select(Course.all, :id, :name))
+  .form-group.actions = submit_tag("Matricular estudante", class: 'btn btn-default') 

@@ -1,0 +1,17 @@
+= form_for @student do |f|
+  - if @student.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@student.errors.count, "erro")} impede(m) o estudante de ser salvo:"
+      ul
+        - @student.errors.full_messages.each do |message|
+          li = message
+
+  .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+  .form-group
+      = f.label :register_number
+      = f.text_field :register_number, class: 'form-control'
+
+  .form-group.actions.text-right = f.submit class: 'btn btn-default'
+end
